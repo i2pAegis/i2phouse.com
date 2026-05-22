@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>i2P House | International Institute for Integrated Performance</title>
+  <meta name="description" content="i2P House — the home of International Institute for Integrated Performance. AI-driven sports intelligence, haptic wearables, and performance technology for the future of sport." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:   #07070f;
+      --dark:    #0e0e1a;
+      --card:    #141424;
+      --border:  #1e1e38;
+      --gold:    #e8b84b;
+      --gold2:   #f5d47a;
+      --red:     #c0392b;
+      --blue:    #3d7ef5;
+      --white:   #f0f0f8;
+      --muted:   #7a7a9a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── NAV ─────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5vw;
+      height: 64px;
+      background: rgba(7,7,15,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--black) !important;
+      padding: 0.45rem 1.1rem;
+      border-radius: 4px;
+      font-weight: 700 !important;
+    }
+
+    .nav-cta:hover { background: var(--gold2) !important; color: var(--black) !important; }
+
+    /* ─── HERO ────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 5vw 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 50% 40%, rgba(232,184,75,0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 30% at 80% 20%, rgba(61,126,245,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(232,184,75,0.3);
+      padding: 0.35rem 1rem;
+      border-radius: 2px;
+      margin-bottom: 2rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 span { color: var(--gold); }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--muted);
+      max-width: 580px;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      padding: 0.85rem 2rem;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--black);
+    }
+
+    .btn-primary:hover { background: var(--gold2); transform: translateY(-1px); }
+
+    .btn-ghost {
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    .btn-ghost:hover { border-color: var(--muted); color: var(--white); }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--muted);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.5;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; transform: scaleY(1); }
+      50% { opacity: 0.8; transform: scaleY(1.2); }
+    }
+
+    /* ─── SECTION BASE ────────────────────────────────── */
+    section {
+      padding: 6rem 5vw;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      line-height: 1.15;
+    }
+
+    .section-body {
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    /* ─── VENTURES ────────────────────────────────────── */
+    #ventures {
+      background: var(--dark);
+    }
+
+    .ventures-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .ventures-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5px;
+      max-width: 1100px;
+      margin: 0 auto;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .venture-card {
+      background: var(--card);
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: background 0.2s;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .venture-card:hover { background: #1a1a2e; }
+
+    .venture-icon {
+      font-size: 1.5rem;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: var(--black);
+    }
+
+    .venture-tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .venture-name {
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .venture-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.7;
+      flex: 1;
+    }
+
+    .venture-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--muted);
+    }
+
+    .status-dot.active { background: #2ecc71; box-shadow: 0 0 6px #2ecc71; }
+    .status-dot.patent { background: var(--gold); box-shadow: 0 0 6px var(--gold); }
+
+    /* ─── AEGIS FEATURE ───────────────────────────────── */
+    #aegis {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      #aegis { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+
+    .aegis-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 2.5rem;
+    }
+
+    .stat-cell {
+      background: var(--card);
+      padding: 1.5rem;
+    }
+
+    .stat-val {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--gold);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .aegis-visual {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .aegis-visual::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(232,184,75,0.06) 0%, transparent 70%);
+    }
+
+    .signal-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 6px;
+      height: 80px;
+      margin-bottom: 1.5rem;
+    }
+
+    .signal-bar {
+      flex: 1;
+      background: linear-gradient(to top, var(--gold), rgba(232,184,75,0.2));
+      border-radius: 2px;
+      animation: barPulse 2s ease-in-out infinite;
+    }
+
+    .signal-bar:nth-child(1)  { height: 30%; animation-delay: 0.0s; }
+    .signal-bar:nth-child(2)  { height: 55%; animation-delay: 0.1s; }
+    .signal-bar:nth-child(3)  { height: 80%; animation-delay: 0.2s; }
+    .signal-bar:nth-child(4)  { height: 60%; animation-delay: 0.3s; }
+    .signal-bar:nth-child(5)  { height: 90%; animation-delay: 0.4s; }
+    .signal-bar:nth-child(6)  { height: 45%; animation-delay: 0.5s; }
+    .signal-bar:nth-child(7)  { height: 70%; animation-delay: 0.6s; }
+    .signal-bar:nth-child(8)  { height: 35%; animation-delay: 0.7s; }
+    .signal-bar:nth-child(9)  { height: 65%; animation-delay: 0.8s; }
+    .signal-bar:nth-child(10) { height: 50%; animation-delay: 0.9s; }
+    .signal-bar:nth-child(11) { height: 85%; animation-delay: 1.0s; }
+    .signal-bar:nth-child(12) { height: 40%; animation-delay: 1.1s; }
+
+    @keyframes barPulse {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+
+    .aegis-metrics {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .metric-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+    }
+
+    .metric-name { color: var(--muted); }
+
+    .metric-bar-wrap {
+      flex: 1;
+      height: 2px;
+      background: var(--border);
+      margin: 0 1rem;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .metric-bar-fill {
+      height: 100%;
+      background: var(--gold);
+      border-radius: 2px;
+      transition: width 1s ease;
+    }
+
+    .metric-val { color: var(--gold); font-weight: 600; font-size: 0.75rem; }
+
+    /* ─── PATENT ──────────────────────────────────────── */
+    #patent {
+      background: var(--dark);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .patent-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .patent-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 1.25rem 2rem;
+      border-radius: 4px;
+      margin-top: 2.5rem;
+    }
+
+    .patent-icon { font-size: 1.5rem; }
+
+    .patent-text { text-align: left; }
+
+    .patent-title {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .patent-num {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--white);
+      font-family: 'Courier New', monospace;
+    }
+
+    /* ─── CONTACT ─────────────────────────────────────── */
+    #contact {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-email {
+      display: inline-block;
+      font-size: 1rem;
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(232,184,75,0.3);
+      padding-bottom: 2px;
+      margin-top: 1.5rem;
+      transition: border-color 0.2s;
+    }
+
+    .contact-email:hover { border-color: var(--gold); }
+
+    /* ─── FOOTER ──────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 5vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    footer strong { color: var(--gold); }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--white); }
+
+    /* ─── TICKER ──────────────────────────────────────── */
+    .ticker-wrap {
+      background: var(--red);
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 0.5rem 0;
+    }
+
+    .ticker {
+      display: inline-block;
+      animation: ticker 30s linear infinite;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    @keyframes ticker {
+      0% { transform: translateX(100vw); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* ─── DIVIDER ─────────────────────────────────────── */
+    .divider {
+      width: 48px;
+      height: 2px;
+      background: var(--gold);
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">i2P House</a>
+    <ul class="nav-links">
+      <li><a href="#ventures">Ventures</a></li>
+      <li><a href="#aegis-section">AEGIS</a></li>
+      <li><a href="#patent">Patent</a></li>
+      <li><a href="#contact" class="nav-cta">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap" style="margin-top:64px;">
+    <span class="ticker">
+      AEGIS Patent Filed · App. No. 64/006,872 &nbsp;·&nbsp;
+      Quantum-Classical Hybrid Intelligence &nbsp;·&nbsp;
+      i2P House — Integrated Performance Technology &nbsp;·&nbsp;
+      Sports AI · Haptic Wearables · Performance Data &nbsp;·&nbsp;
+      AEGIS Patent Filed · App. No. 64/006,872 &nbsp;·&nbsp;
+    </span>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <span class="hero-tag">International Institute for Integrated Performance</span>
+    <h1>Where <span>Performance</span><br>Meets Intelligence</h1>
+    <p class="hero-sub">
+      i2P House is the home of i2P LLC — building AI-driven sports intelligence,
+      haptic performance wearables, and data infrastructure for the future of sport.
+    </p>
+    <div class="hero-actions">
+      <a href="#ventures" class="btn btn-primary">Explore Ventures</a>
+      <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+    </div>
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- VENTURES -->
+  <section id="ventures">
+    <div class="ventures-header">
+      <div class="section-label">Portfolio</div>
+      <h2 class="section-title">Built for the Future<br>of Sport & Performance</h2>
+    </div>
+    <div class="ventures-grid">
+
+      <div class="venture-card">
+        <div class="venture-icon">⚡</div>
+        <div class="venture-tag">Sports AI · Filed Patent</div>
+        <div class="venture-name">AEGIS</div>
+        <p class="venture-desc">
+          Quantum-Classical Hybrid Intelligence Engine. Pre-emptive sensory augmentation
+          for athletes, coaches, and fans — powered by real-match audio signal analysis
+          across UCL and elite competition data.
+        </p>
+        <div class="venture-status">
+          <span class="status-dot patent"></span>
+          Patent App. No. 64/006,872
+        </div>
+      </div>
+
+      <div class="venture-card">
+        <div class="venture-icon">🎵</div>
+        <div class="venture-tag">Haptic Wearables · In Development</div>
+        <div class="venture-name">i2P Resonance™</div>
+        <p class="venture-desc">
+          Battito™ haptic wearable system — translating live stadium audio and
+          match emotion into tactile experience for visually impaired fans
+          and performance-focused athletes.
+        </p>
+        <div class="venture-status">
+          <span class="status-dot active"></span>
+          Active Development
+        </div>
+      </div>
+
+      <div class="venture-card">
+        <div class="venture-icon">⚽</div>
+        <div class="venture-tag">E-Commerce · Brand</div>
+        <div class="venture-name">Ctrl Club Futbol</div>
+        <p class="venture-desc">
+          Premium football culture brand. Performance-driven apparel and gear
+          for the next generation of players and fans who live the game at the highest level.
+        </p>
+        <div class="venture-status">
+          <span class="status-dot active"></span>
+          Sprint 2 Active
+        </div>
+      </div>
+
+      <div class="venture-card">
+        <div class="venture-icon">🏛️</div>
+        <div class="venture-tag">Nonprofit · Foundation</div>
+        <div class="venture-name">Athletic Corridor Foundation</div>
+        <p class="venture-desc">
+          Building pathways for underrepresented athletes through technology,
+          data, and performance infrastructure in partnership with the I-65 Corridor.
+        </p>
+        <div class="venture-status">
+          <span class="status-dot active"></span>
+          Active
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- AEGIS FEATURE -->
+  <section id="aegis-section" style="padding: 6rem 5vw;">
+    <div id="aegis">
+      <div>
+        <div class="section-label">Featured Technology</div>
+        <h2 class="section-title">AEGIS Intelligence<br>Engine</h2>
+        <div class="divider"></div>
+        <p class="section-body">
+          AEGIS analyzes real match audio from elite UEFA Champions League fixtures —
+          extracting sprint counts, heart rate proxies, injury risk scores, and
+          tactical cognition signals from the crowd and pitch soundscape.
+        </p>
+        <p class="section-body" style="margin-top:1rem;">
+          Validated across 20+ matches spanning 2005–2026. Patent filed March 2026.
+        </p>
+        <div class="aegis-stats">
+          <div class="stat-cell">
+            <div class="stat-val">20+</div>
+            <div class="stat-label">UCL Matches Processed</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-val">1,000+</div>
+            <div class="stat-label">Signal Records</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-val">4</div>
+            <div class="stat-label">Composite Metrics</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-val">2026</div>
+            <div class="stat-label">Patent Filed</div>
+          </div>
+        </div>
+      </div>
+      <div class="aegis-visual">
+        <div class="signal-bars">
+          <div class="signal-bar"></div>
+          <div class="signal-bar"></div>
+          <div class="signal-bar"></div>
+          <div class="signal-bar"></div>
+          <div class="signal-bar"></div>
+          <div class="signal-bar"></div>
+          <div class="signal-bar"></div>
+          <div class="signal-bar"></div>
+          <div class="signal-bar"></div>
+          <div class="signal-bar"></div>
+          <div class="signal-bar"></div>
+          <div class="signal-bar"></div>
+        </div>
+        <div class="aegis-metrics">
+          <div class="metric-row">
+            <span class="metric-name">Injury Risk</span>
+            <div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:54%"></div></div>
+            <span class="metric-val">0.54</span>
+          </div>
+          <div class="metric-row">
+            <span class="metric-name">Kognia Tactical</span>
+            <div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:66%"></div></div>
+            <span class="metric-val">1.28</span>
+          </div>
+          <div class="metric-row">
+            <span class="metric-name">Circadian Score</span>
+            <div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:73%"></div></div>
+            <span class="metric-val">0.73</span>
+          </div>
+          <div class="metric-row">
+            <span class="metric-name">QMC Quantum Sig.</span>
+            <div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:49%"></div></div>
+            <span class="metric-val">0.49</span>
+          </div>
+          <div class="metric-row">
+            <span class="metric-name">Sprint Count</span>
+            <div class="metric-bar-wrap"><div class="metric-bar-fill" style="width:62%"></div></div>
+            <span class="metric-val">24.8</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PATENT -->
+  <section id="patent">
+    <div class="patent-inner">
+      <div class="section-label">Intellectual Property</div>
+      <h2 class="section-title">AEGIS Patent Filed</h2>
+      <p class="section-body" style="margin: 0 auto; text-align:center;">
+        AEGIS is protected intellectual property. The provisional patent covers
+        the Quantum-Classical Hybrid Intelligence Engine methodology, signal
+        extraction architecture, and composite performance scoring system.
+      </p>
+      <div class="patent-badge">
+        <span class="patent-icon">🔐</span>
+        <div class="patent-text">
+          <div class="patent-title">USPTO Provisional Patent Application</div>
+          <div class="patent-num">App. No. 64/006,872 · Filed March 16, 2026</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" style="padding:6rem 5vw;">
+    <div id="contact">
+      <div class="section-label">Connect</div>
+      <h2 class="section-title">Build With Us</h2>
+      <p class="section-body" style="margin: 1rem auto 0;">
+        i2P House is actively seeking investment partners, sports technology
+        collaborators, and licensing opportunities for AEGIS and the i2P Resonance
+        platform.
+      </p>
+      <a href="mailto:admin@integrated-performance.institute" class="contact-email">
+        admin@integrated-performance.institute
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <strong>i2P House</strong> · International Institute for Integrated Performance, LLC<br>
+      WKU Innovation Campus · Bowling Green, KY · AEGIS Patent App. No. 64/006,872
+    </div>
+    <div class="footer-links">
+      <a href="mailto:admin@integrated-performance.institute">Contact</a>
+      <a href="#ventures">Ventures</a>
+      <a href="#patent">IP</a>
+    </div>
+  </footer>
+
+</body>
+</html>
