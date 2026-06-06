@@ -47,9 +47,10 @@ i2P runs as one company with clear lanes, not as one folder of mixed experiments
 
 | Venture | Folder | Status | Notes |
 |---|---|---|---|
-| Sacred Spaces | `13_SACRED_SPACES` | Launched | Premium cleaning service business |
+| Sacred Spaces | `13_SACRED_SPACES` | Launched May 2026 | Premium water-filtration cleaning; Bowling Green, KY; Rainbow SRX system |
 | Total Spectrum Autism Services LLC | Separate entity | Operating | Confirm county, active status, revenue |
 | Athletic Corridor Foundation | On hiatus | Officially paused May 30, 2026 | athleticcorridor.com reassigned to FIFA Agent Prep |
+| I-65 Corridor Mobility | `07_PARTNERSHIPS` | Active — sparse documentation | Infrastructure/civic project; WKU Innovation Campus positioning |
 
 ### Funding, Partnerships, and Operations
 
@@ -84,7 +85,7 @@ i2P runs as one company with clear lanes, not as one folder of mixed experiments
 
 **Critical deadline:** Non-provisional filing due **March 16, 2027**. Maintain 90/60/30-day reminders.
 
-**NSF SBIR Phase I pitch:** Targeting NSF 26-510 or NSF 26-511. Up to $305,000. **Next due date: July 27, 2026.** KT is solo PI. KSTC contact: Ellie Derbyshire. NDI contact: Alexis Jones, MSW. Portal was closed due to legislative changes — confirm current status before submitting.
+**NSF SBIR Phase I pitch:** Targeting NSF 26-510 or NSF 26-511. Up to $305,000. **Next due date: July 27, 2026.** KT is solo PI. KSTC contact: Ellie Derbyshire. NDI contact: Alexis Jones, MSW. WKU faculty contact: Dr. Lynch. Portal was closed due to legislative changes — confirm current status before submitting. Use accessibility/BLV framing — NOT injury prevention or neurodivergent-primary. Older $275K / portal-blocked framing is stale.
 
 **Production system:** Live on Azure Container Apps. API endpoint active. RF model (trained on 1,400+ crowd events). `AEGIS_LOCAL/` has NO git repo — all production code is local-only. **Back up before factory reset.**
 
@@ -167,6 +168,24 @@ i2P runs as one company with clear lanes, not as one folder of mixed experiments
 **BVS (Brand Voice Score):** 5-dimension content quality rubric. All content measured before publication. Sprint 1 sets the benchmark. BVS rubric is a trade secret.
 
 **Endrick Live Player Intelligence Agent:** Architecture defined, build pending. 5-layer automated content system (data ingestion → contextual AI → content production → automation → deliverables) focused on Endrick (Real Madrid/Brazil).
+
+---
+
+## Sacred Spaces
+
+**Status:** Launched May 2026. Bowling Green & Warren County, KY. Equipment: Rainbow SRX Cleaning System.
+
+**Target markets:** Churches/religious facilities, pet owners, young families (baby gear), auto interiors.
+
+**Licensing pending:** BG Occupational License (bgky.org/finance/license), Warren County check, Kentucky OneStop, General Liability Insurance ($1M/$2M coverage).
+
+**Revenue lane:** Standalone local service business — independent of i2P LLC tech ventures.
+
+---
+
+## I-65 Corridor Mobility
+
+**Status:** Active — sparse documentation. Infrastructure/civic project along the I-65 corridor (Kentucky). Connected to WKU Innovation Campus positioning. Check `07_PARTNERSHIPS/` for current files. Ask KT for status before referencing externally.
 
 ---
 
@@ -284,6 +303,7 @@ i2P runs as one company with clear lanes, not as one folder of mixed experiments
 | Alexis Jones, MSW | NDI | Warm BLV recruitment/validation channel for AEGIS — confirm permission to name |
 | Ibrahim Farag | Legal / Patent | AEGIS NP filing only — no longer on Battito team |
 | Jan Rogers | Partnerships / ACF | Strategic partner; ACF grants files at `SHARED/Jan_Rogers_ACF/` |
+| Dr. Lynch | WKU Faculty | NSF SBIR support contact; meeting May 8, 2026; files at `09_MEETINGS/Dr_Lynch_Meeting_*.md` |
 
 ---
 
