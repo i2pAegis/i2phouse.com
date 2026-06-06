@@ -1,0 +1,36 @@
+# Sensitive IP — never commit
+01_PATENTS/
+03_AEGIS/patent/
+99_SECURITY_REVIEW/
+TRADE_SECRET_REGISTRY.md
+*_ATTORNEY_*.md
+*_ATTORNEY_*.pdf
+*_ATTORNEY_*.docx
+*patent_draft*
+*_PROVISIONAL_*
+*_NP_CLAIMS_*
+*_FULL_PATENT_*
+*_USPTO_*
+
+# Environment and secrets
+.env
+.env.*
+*.key
+*.pem
+secrets/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Node / build artifacts
+node_modules/
+dist/
+.cache/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
