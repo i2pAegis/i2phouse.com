@@ -777,6 +777,7 @@
     <ul class="nav-links">
       
       <li><a href="#aegis-section">AEGIS</a></li>
+      <li><a href="#scout">Data Scout</a></li>
       <li><a href="#patent">Patent</a></li>
       <li><a href="#contact" class="nav-cta">Contact</a></li>
     </ul>
@@ -1043,6 +1044,57 @@
     </div>
   </section>
 
+  <!-- DATA SCOUT -->
+  <section id="scout" style="padding:6rem 5vw; background: #0a0a12;">
+    <div style="max-width:700px; margin:0 auto; text-align:center;">
+      <div class="section-label">Data Scout Network</div>
+      <h2 class="section-title">Become an AEGIS<br>Data Scout</h2>
+      <p class="section-body" style="margin: 1rem auto 0;">
+        Going to a match? Your phone can help blind and low-vision fans feel the game.
+        Join the AEGIS Data Scout network — turn on Live Mode, put your phone in your pocket,
+        and watch the match. That's it. Your phone captures ambient crowd audio that trains
+        AEGIS haptic alerts. No voice is captured. Anonymous by default.
+      </p>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:16px; margin: 2rem 0; text-align:center;">
+        <div style="background:#12122a; border-radius:12px; padding:20px; border:1px solid rgba(255,255,255,0.05);">
+          <div style="font-size:2rem;">🧠</div>
+          <div style="font-size:0.8rem; font-weight:600; color:var(--white); margin-top:8px;">Sign Up</div>
+          <div style="font-size:0.6rem; color:#555; margin-top:4px;">Enter your email</div>
+        </div>
+        <div style="background:#12122a; border-radius:12px; padding:20px; border:1px solid rgba(255,255,255,0.05);">
+          <div style="font-size:2rem;">📱</div>
+          <div style="font-size:0.8rem; font-weight:600; color:var(--white); margin-top:8px;">Enable Live Mode</div>
+          <div style="font-size:0.6rem; color:#555; margin-top:4px;">One tap at the stadium</div>
+        </div>
+        <div style="background:#12122a; border-radius:12px; padding:20px; border:1px solid rgba(255,255,255,0.05);">
+          <div style="font-size:2rem;">⚽</div>
+          <div style="font-size:0.8rem; font-weight:600; color:var(--white); margin-top:8px;">Watch the Match</div>
+          <div style="font-size:0.6rem; color:#555; margin-top:4px;">Phone in pocket. Done.</div>
+        </div>
+        <div style="background:#12122a; border-radius:12px; padding:20px; border:1px solid rgba(255,255,255,0.05);">
+          <div style="font-size:2rem;">🏅</div>
+          <div style="font-size:0.8rem; font-weight:600; color:var(--white); margin-top:8px;">Earn Badges</div>
+          <div style="font-size:0.6rem; color:#555; margin-top:4px;">Scout → Verified → Elite</div>
+        </div>
+      </div>
+
+      <!-- Inline signup form -->
+      <div style="background:linear-gradient(135deg, #12122a, #1a1a3a); border-radius:14px; padding:24px; max-width:420px; margin:0 auto; border:1px solid rgba(201,169,110,0.15);">
+        <div id="scout-form-result" style="font-size:0.8rem; color:#2ecc71; margin-bottom:12px; display:none;"></div>
+        <input type="email" id="scout-email-i2p" placeholder="Your email" style="width:100%; padding:12px; border-radius:8px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.05); color:white; font-size:0.85rem; margin-bottom:12px; outline:none; text-align:center;">
+        <button onclick="applyScout()" style="width:100%; padding:14px; border-radius:10px; border:none; background:#c9a96e; color:#0a0a12; font-size:0.85rem; font-weight:600; cursor:pointer;">Apply to Become a Data Scout</button>
+        <p style="font-size:0.55rem; color:#444; margin-top:10px;">
+          🔒 No voice captured. Anonymous. Opt out any time.
+        </p>
+      </div>
+
+      <p style="font-size:0.65rem; color:#444; margin-top:16px;">
+        Or apply directly in the <a href="https://ctrlclub-futbol.pages.dev" style="color:#666;">CTRL Fantasy app</a>
+      </p>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section id="contact" style="padding:6rem 5vw;">
     <div style="max-width:700px; margin:0 auto; text-align:center;">
@@ -1072,5 +1124,18 @@
     </div>
   </footer>
 
+<script>
+function applyScout() {
+  const email = document.getElementById('scout-email-i2p').value;
+  const result = document.getElementById('scout-form-result');
+  if (!email || !email.includes('@')) { result.textContent = 'Enter a valid email'; result.style.display='block'; result.style.color='#c1272d'; return; }
+  let scouts = JSON.parse(localStorage.getItem('aegis_scouts') || '[]');
+  scouts.push({email, date: new Date().toISOString(), source: 'i2phouse.com'});
+  localStorage.setItem('aegis_scouts', JSON.stringify(scouts));
+  result.textContent = "✅ You're in. We'll reach out when your first match is confirmed.";
+  result.style.display = 'block';
+  result.style.color = '#2ecc71';
+}
+</script>
 </body>
 </html>
